@@ -40,8 +40,8 @@ function NavBar() {
           <Link to="/about" style={styles.link}>
             About
           </Link>
-          <Link to="/products" style={styles.link}>
-            Products
+          <Link to="/add-products" style={styles.link}>
+            Add Products
           </Link>
           <Link to="/login" style={styles.link}>
             Login
