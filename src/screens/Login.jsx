@@ -1,4 +1,17 @@
+import { useState } from "react";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  
+
+
   return (
     <form>
       <h1>Login Page</h1>
@@ -13,6 +26,8 @@ const Login = () => {
       >
         <label htmlFor="email">Email:</label>
         <input
+          onChange={handleEmail}
+          value={email}
           style={{
             padding: "8px",
           }}
@@ -32,6 +47,8 @@ const Login = () => {
       >
         <label htmlFor="password">Password:</label>
         <input
+          value={password}
+          onChange={handlePassword}
           style={{
             padding: "8px",
           }}
