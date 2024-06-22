@@ -1,19 +1,27 @@
 import { useState } from "react";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value)
-  }
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
-  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); //
+    console.log("fordData", formData)
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h1>Login Page</h1>
       <div
         style={{
@@ -26,8 +34,8 @@ const Login = () => {
       >
         <label htmlFor="email">Email:</label>
         <input
-          onChange={handleEmail}
-          value={email}
+          onChange={handleChange}
+          value={formData.email}
           style={{
             padding: "8px",
           }}
@@ -47,8 +55,8 @@ const Login = () => {
       >
         <label htmlFor="password">Password:</label>
         <input
-          value={password}
-          onChange={handlePassword}
+          value={formData.password}
+          onChange={handleChange}
           style={{
             padding: "8px",
           }}
