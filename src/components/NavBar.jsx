@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function NavBar() {
   // use the authcontext and destructure the user, logout from it here
+  const { user, logout } = useContext(AuthContext);
   const styles = {
     header: {
       backgroundColor: "#3B82F6", // Tailwind's blue-500
@@ -46,9 +47,16 @@ function NavBar() {
           <Link to="/add-products" style={styles.link}>
             Add Products
           </Link>
-          <Link to="/login" style={styles.link}>
-            Login
-          </Link>
+          {user ? (
+            <button onClick={logout} style={styles.link}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" style={styles.link}>
+              Login
+            </Link>
+          )}
+
           {/* // instead of always showing the login link, show the logout button if there is  a logged in user  */}
         </nav>
       </header>

@@ -1,12 +1,12 @@
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 const About = () => {
+  const { user } = useContext(AuthContext)
   return (
     <section>
       <h1>About Practical Products.</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iusto
-        beatae laudantium ipsum, possimus quibusdam, dolor at cumque blanditiis,
-        alias suscipit sed tempora ex in saepe accusantium officiis nemo
-        doloremque.
+       you are logged in as { user?.email}
       </p>
     </section>
   );
